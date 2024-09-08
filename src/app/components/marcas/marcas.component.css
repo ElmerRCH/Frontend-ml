@@ -1,0 +1,26 @@
+.card-container{
+  margin-left: 2%;
+  margin-top: 3%;
+}
+
+.card-container div{
+  margin-top: -10px;
+
+}
+.container-text{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+h3 {
+  grid-column: 1 / 4;
+
+}
+
+p {
+  grid-column: 4/end;
+  text-align: right;
+}
+
+
