@@ -1,19 +1,18 @@
+<div class="container">
+  <div  *ngFor="let producto of productos" class="max-w-sm  border rounded-lg shadow bg-gray-800 border-gray-700 card-container">
+    <a href="#">
+      <h1>{{this.productos['name']}}</h1>
+      <img class="rounded-t-lg" src="{{chooseLogo(this.productos['name'])}}" alt="" />
+    </a>
+    <div  class="p-5 container-text">
 
-<div class="max-w-sm  border rounded-lg shadow bg-gray-800 border-gray-700 card-container">
-  <a href="#">
-      <img class="rounded-t-lg" src="assets/img/logo-gamo.png" alt="" />
-  </a>
-  <div  *ngIf="dataProducts" class="p-5 container-text">
-
-        <h3 class="mb-2 text-2xl font-bold tracking-tight text-white">Productos totales:</h3>
-        <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['total']}}</p>
-        <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios altos:</h3>
-        <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_altos']}}</p>
-        <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios bajos:</h3>
-        <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_bajos']}}</p>
-        <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">Productos Pausados:</h3>
-        <p class="mb-2 text-2xl font-bold tracking-tight text-white">20</p>
-
+      <h3 class="mb-2 text-2xl font-bold tracking-tight text-white">Productos totales:</h3>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['total']}}</p>
+      <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios altos:</h3>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_altos']}}</p>
+      <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios bajos:</h3>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_bajos']}}</p>
+    </div>
   </div>
 </div>
 

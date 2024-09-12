@@ -7,11 +7,11 @@ import { catchError } from 'rxjs/operators';
 })
 export class ProductosService {
   private http = inject(HttpClient)
-  apiUrl = 'http://172.31.80.1:8000/excel/productos-arriba-precio'
+  apiUrl = 'http://172.26.64.1:8000/excel/productos-arriba-precio'
   // constructor(private http: HttpClient) { }
 
   getProductosArribaPrecio(): Observable<any> {
-    console.log('haciendo peticion......')
+
     return this.http.get(this.apiUrl).pipe(
       catchError((_: HttpErrorResponse) => {
         return of(false);

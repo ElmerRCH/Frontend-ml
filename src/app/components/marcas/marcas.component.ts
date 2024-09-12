@@ -23,22 +23,17 @@ export class MarcasComponent implements OnInit, OnDestroy{
   ) { }
 
   private destroy$ = new Subject<void>();
-  ngOnInit(): void {
-    // Usar `concatMap` para iniciar el intervalo solo cuando la aplicación esté estable
-    this.appRef.isStable.pipe(
-      filter(stable => stable),
-      takeUntil(this.destroy$),
-      concatMap(() => interval(15000))
-    ).subscribe(() => {
-      // Realizar la petición al servicio
-      this.productosService.getProductosArribaPrecio().subscribe(data => {
-        this.productos = data
-        this.dataProducts = true
-        this.cdr.detectChanges();
-        console.log('datos:', data);
 
-      });
-    });
+  ngOnInit(): void {
+    this.productosService.getProductosArribaPrecio().subscribe(
+      (data) => {
+        this.productos = data;
+        console.log('data:::',this.productos)
+      },
+      (error) => {
+        console.error('Error al obtener productos', error);
+      }
+    );
   }
 
   ngOnDestroy(): void {
@@ -46,4 +41,9 @@ export class MarcasComponent implements OnInit, OnDestroy{
     this.destroy$.complete();
   }
 
+  chooseLogo(marca:any){
+    console.log('logo::::',marca)
+    let path = 'assets/img/logo-gamo.png'
+
+  }
 }

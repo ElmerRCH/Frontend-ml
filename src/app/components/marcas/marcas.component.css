@@ -1,6 +1,11 @@
+.container{
+
+  display: flex;
+}
 .card-container{
   margin-left: 2%;
   margin-top: 3%;
+
 }
 
 .card-container div{
