@@ -1,17 +1,18 @@
 <div class="container">
   <div  *ngFor="let producto of productos" class="max-w-sm  border rounded-lg shadow bg-gray-800 border-gray-700 card-container">
-    <a href="#">
-      <h1>{{this.productos['name']}}</h1>
-      <img class="rounded-t-lg" src="{{chooseLogo(this.productos['name'])}}" alt="" />
+    <a class='container-img' href="#">
+      <img class="rounded-t-lg" src="{{chooseLogo(this.producto['name'])}}" alt="" />
     </a>
+
     <div  class="p-5 container-text">
+      <h1 class="text-4xl font-bold text-white">{{this.producto['name']}}</h1>
 
       <h3 class="mb-2 text-2xl font-bold tracking-tight text-white">Productos totales:</h3>
-      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['total']}}</p>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.producto['total']}}</p>
       <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios altos:</h3>
-      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_altos']}}</p>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.producto['productos_con_precios_altos']}}</p>
       <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios bajos:</h3>
-      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.productos['productos_con_precios_bajos']}}</p>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.producto['productos_con_precios_bajos']}}</p>
     </div>
   </div>
 </div>

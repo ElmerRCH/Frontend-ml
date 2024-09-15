@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ProductosService {
   private http = inject(HttpClient)
-  apiUrl = 'http://172.26.64.1:8000/excel/productos-arriba-precio'
+  apiUrl = 'http://192.168.0.151:8000/excel/productos-arriba-precio'
   // constructor(private http: HttpClient) { }
 
   getProductosArribaPrecio(): Observable<any> {

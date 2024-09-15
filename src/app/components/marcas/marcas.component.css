@@ -5,19 +5,29 @@
 .card-container{
   margin-left: 2%;
   margin-top: 3%;
-
+  display: flex;
+  justify-content:space-between;
+  flex-direction: column;
 }
 
 .card-container div{
   margin-top: -10px;
 
+
+}
+.container-img{
+  margin: auto;
 }
 .container-text{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:5px;
+}
+h1{
+  text-align: center;
+  grid-column: 1/end;
 
 }
-
 h3 {
   grid-column: 1 / 4;
 

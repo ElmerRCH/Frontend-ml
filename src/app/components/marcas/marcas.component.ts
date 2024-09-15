@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, OnDestroy,ApplicationRef,ChangeDetectorRef   } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { interval,Subject,filter,concatMap  } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil,switchMap,startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
 
@@ -41,9 +41,11 @@ export class MarcasComponent implements OnInit, OnDestroy{
     this.destroy$.complete();
   }
 
+  ngAfterViewInit(): void {
+    
+  }
   chooseLogo(marca:any){
-    console.log('logo::::',marca)
-    let path = 'assets/img/logo-gamo.png'
 
+    return `assets/img/${marca.toLowerCase()}.png`;
   }
 }
