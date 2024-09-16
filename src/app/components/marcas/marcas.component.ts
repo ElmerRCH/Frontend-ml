@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnDestroy,ApplicationRef,ChangeDetectorRef   } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { interval,Subject,filter,concatMap  } from 'rxjs';
 import { takeUntil,switchMap,startWith } from 'rxjs/operators';
@@ -7,22 +7,16 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-marcas',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './marcas.component.html',
-  styleUrl: './marcas.component.css'
+  styleUrls: ['./marcas.component.css']
 })
+export class MarcasComponent {
 
-export class MarcasComponent implements OnInit, OnDestroy{
-  private productosService = inject(ProductosService)
-  productos: any;
-  dataProducts = false
-
-  constructor(private appRef: ApplicationRef,
-              private cdr: ChangeDetectorRef
-  ) { }
 
   private destroy$ = new Subject<void>();
+  productos: any = [];
+
+  constructor(private productosService: ProductosService) {}
 
   ngOnInit(): void {
     this.productosService.getProductosArribaPrecio().subscribe(
@@ -41,11 +35,7 @@ export class MarcasComponent implements OnInit, OnDestroy{
     this.destroy$.complete();
   }
 
-  ngAfterViewInit(): void {
-    
-  }
   chooseLogo(marca:any){
-
     return `assets/img/${marca.toLowerCase()}.png`;
   }
 }
