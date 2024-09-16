@@ -18,16 +18,20 @@ export class MarcasComponent {
 
   constructor(private productosService: ProductosService) {}
 
-  ngOnInit(): void {
-    this.productosService.getProductosArribaPrecio().subscribe(
-      (data) => {
-        this.productos = data;
-        console.log('data:::',this.productos)
-      },
-      (error) => {
-        console.error('Error al obtener productos', error);
-      }
-    );
+  ngOnInit() {
+    interval(15000).pipe(
+      startWith(0),
+      switchMap(() => this.productosService.getProductosArribaPrecio()),
+      takeUntil(this.destroy$)
+    ).subscribe(data => {
+      this.productos = data;
+    });
+
+    //const reloadPage = () => {
+    //  window.location.reload();
+    //};
+
+    // setTimeout(reloadPage, 15000);
   }
 
   ngOnDestroy(): void {
