@@ -9,12 +9,24 @@ import { catchError } from 'rxjs/operators';
 export class ProductosService {
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:8000/excel/productos-arriba-precio'
+  // apiUrl = 'http://localhost:8000/excel/productos-arriba-precio'
+  apiUrl = 'http://localhost:8000/excel/'
+
   // constructor(private http: HttpClient) { }
 
   getProductosArribaPrecio(): Observable<any> {
+    return this.http.get(`${this.apiUrl}productos-arriba-precio`).pipe(
+      catchError((_: HttpErrorResponse) => {
+        return of(false);
+      })
+    );
+  }
 
-    return this.http.get(this.apiUrl).pipe(
+  getProductos(marca:any): Observable<any>{
+    console.log('llego peticion')
+    console.log('peticion parametros::',marca)
+
+    return this.http.post(`${this.apiUrl}productos/`,{ marca: marca }).pipe(
       catchError((_: HttpErrorResponse) => {
         return of(false);
       })

@@ -1,5 +1,6 @@
 <div class="container">
-  <div  *ngFor="let producto of productos" class="max-w-sm  border rounded-lg shadow bg-gray-800 border-gray-700 card-container">
+
+  <a [routerLink] = "['/productos',this.producto['name']]" (click)=verProductos() *ngFor="let producto of productos" class="max-w-sm  border rounded-lg shadow bg-gray-800 border-gray-700 card-container">
     <a class='container-img' href="#">
       <img class="rounded-t-lg" src="{{chooseLogo(this.producto['name'])}}" alt="" />
     </a>
@@ -14,5 +15,5 @@
       <h3 for="" class="mb-2 text-2xl font-bold tracking-tight text-white">precios bajos:</h3>
       <p class="mb-2 text-2xl font-bold tracking-tight text-white">{{this.producto['productos_con_precios_bajos']}}</p>
     </div>
-  </div>
+  </a>
 </div>
