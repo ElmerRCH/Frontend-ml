@@ -1,0 +1,14 @@
+.title{
+  text-align: center;
+}
+
+.producto-img {
+  width: 100%;
+  height: 50%;
+  object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+.container-redirect{
+  display: flex;
+  justify-content: space-evenly;
+}
