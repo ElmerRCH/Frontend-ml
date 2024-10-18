@@ -23,14 +23,20 @@ export class ProductosService {
   }
 
   getProductos(marca:any): Observable<any>{
-    console.log('llego peticion')
-    console.log('peticion parametros::',marca)
-
     return this.http.post(`${this.apiUrl}productos/`,{ marca: marca }).pipe(
       catchError((_: HttpErrorResponse) => {
         return of(false);
       })
     );
   }
+
+  actualizarInventario(): Observable<any>{
+    return this.http.get(`${this.apiUrl}actualizar-inventario/`).pipe(
+      catchError((_: HttpErrorResponse) => {
+        return of(false);
+      })
+    );
+  }
+
 
 }

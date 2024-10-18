@@ -3,3 +3,10 @@ img{
   border-radius: 10px;
   height: 100%;
 }
+nav{
+  width: 100%;
+  position: fixed;
+  top: 0; /* Lo coloca en la parte superior */
+  left: 0;
+  
+}
