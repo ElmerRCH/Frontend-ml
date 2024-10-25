@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./marcas.component.css']
 })
 export class MarcasComponent {
-
+  showNotification = false;
   @Input() marca:any;
 
   private destroy$ = new Subject<void>();
@@ -29,6 +29,7 @@ export class MarcasComponent {
       switchMap(() => this.productosService.getProductosArribaPrecio()),
       takeUntil(this.destroy$)
     ).subscribe(data => {
+      // this.show()
       this.productos = data;
     });
 
@@ -49,7 +50,17 @@ export class MarcasComponent {
   }
 
   verProductos(){
-    console.log('envio.........')
     this.marcaSeleccionada.emit(this.marca)
+  }
+
+
+  show(duration = 3000) {
+
+    this.showNotification = true;
+
+    // Ocultar después del tiempo especificado
+    setTimeout(() => {
+      this.showNotification = false;
+    }, duration);
   }
 }
