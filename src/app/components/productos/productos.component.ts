@@ -17,6 +17,8 @@ export class ProductosComponent {
     this.activatedRoute.params.subscribe(params => {
       this.productosService.getProductos(params['marca']).subscribe(
         (response) => {
+
+          // this.productos = response.data.filter((producto: any) => producto.Link_competencia_publicacion != "");
           this.productos = response;
           console.log('Productos recibidos:::::::::::', this.productos);
         },

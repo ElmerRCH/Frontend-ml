@@ -2,43 +2,46 @@
 <div class="container mx-auto">
   <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white title">{{ productos.marca }}</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let producto of productos.data" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <div  target="_blank">
-        <img class="producto-img rounded-t-lg" [src]="producto.url_img" alt="{{ producto.name }}" />
-      </div>
+    <ng-container *ngFor="let producto of productos.data">
+      <div *ngIf="producto.Link_competencia_publicacion !== ''" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-      <div class="p-5">
-        <a [href]="producto.Link_competencia_publicacion" target="_blank">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ producto.name }}</h5>
-        </a>
-
-        <p class="mb-2 font-normal text-gray-700 dark:text-gray-400"><strong>Modelo:</strong> {{ producto.codigo }}</p>
-        <p class="mb-2 font-normal text-gray-700 dark:text-gray-400"><strong>Precio:</strong> {{ producto.precio }}</p>
-        <p class="mb-4 font-normal text-gray-700 dark:text-gray-400"><strong>Precio Competencia:</strong>
-          {{ producto.precio_competencia !== '-' ? '$' + producto.precio_competencia : 'No disponible' }}
-        </p>
-
-        <div class="container-redirect">
-          <a [href]="producto.link_mi_publicacion" target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Ver mi producto
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-
-          <a [href]="producto.Link_competencia_publicacion" target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Ver competencia
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
+        <div target="_blank">
+          <img class="producto-img rounded-t-lg" [src]="producto.url_img" alt="{{ producto.name }}" />
         </div>
 
+        <div class="p-5">
+          <a [href]="producto.Link_competencia_publicacion" target="_blank">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ producto.name }}</h5>
+          </a>
+
+          <p class="mb-2 font-normal text-gray-700 dark:text-gray-400"><strong>Modelo:</strong> {{ producto.codigo }}</p>
+          <p class="mb-2 font-normal text-gray-700 dark:text-gray-400"><strong>Precio:</strong> {{ producto.precio }}</p>
+          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400"><strong>Precio Competencia:</strong>
+            {{ producto.precio_competencia !== '-' ? '$' + producto.precio_competencia : 'No disponible' }}
+          </p>
+
+          <div class="container-redirect">
+            <a [href]="producto.link_mi_publicacion" target="_blank"
+               class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver mi producto
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+            </a>
+
+            <a [href]="producto.Link_competencia_publicacion" target="_blank"
+               class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Ver competencia
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </ng-container>
+
   </div>
 </div>
