@@ -31,7 +31,7 @@ export class ProductosService {
   }
 
   actualizarInventario(): Observable<any>{
-    return this.http.get(`${this.apiUrl}actualizar-inventario/`).pipe(
+    return this.http.get(`http://localhost:8000/api-ml/actualizar-inventario`).pipe(
       catchError((_: HttpErrorResponse) => {
         return of(false);
       })

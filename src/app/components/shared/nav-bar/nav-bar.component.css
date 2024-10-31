@@ -6,7 +6,12 @@ img{
 nav{
   width: 100%;
   position: fixed;
-  top: 0; /* Lo coloca en la parte superior */
+  top: 0;
   left: 0;
   z-index: 9999;
+}
+.container-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
