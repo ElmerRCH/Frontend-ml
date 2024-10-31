@@ -1,3 +1,13 @@
+.notifi{
+
+  left: 40%;
+  top: 0;
+  z-index: 9999999;
+  position: absolute;
+
+}
+
+
 .container{
   display: flex;
   justify-content: center;

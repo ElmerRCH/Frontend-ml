@@ -24,12 +24,12 @@ export class MarcasComponent {
   }
 
   ngOnInit() {
-    interval(150000).pipe(
+    interval(10000).pipe(
       startWith(0),
       switchMap(() => this.productosService.getProductosArribaPrecio()),
       takeUntil(this.destroy$)
     ).subscribe(data => {
-      // this.show()
+      this.show()
       this.productos = data;
     });
 
