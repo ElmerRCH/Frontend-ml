@@ -2,7 +2,7 @@ import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { interval,Subject,filter,concatMap  } from 'rxjs';
 import { takeUntil,switchMap,startWith } from 'rxjs/operators';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-marcas',
@@ -24,7 +24,7 @@ export class MarcasComponent {
   }
 
   ngOnInit() {
-    interval(30000).pipe(
+    interval(150000).pipe(
       startWith(0),
       switchMap(() => this.productosService.getProductosArribaPrecio()),
       takeUntil(this.destroy$)
