@@ -11,7 +11,10 @@ import { takeUntil,switchMap,startWith } from 'rxjs/operators';
 })
 
 export class MarcasComponent {
+
   showNotification = false;
+  isLoading = true;
+
   @Input() marca:any;
 
   private destroy$ = new Subject<void>();
@@ -30,14 +33,11 @@ export class MarcasComponent {
       takeUntil(this.destroy$)
     ).subscribe(data => {
       this.show()
+      this.isLoading = false;
       this.productos = data;
     });
 
-    //const reloadPage = () => {
-    //  window.location.reload();
-    //};
 
-    // setTimeout(reloadPage, 15000);
   }
 
   ngOnDestroy(): void {

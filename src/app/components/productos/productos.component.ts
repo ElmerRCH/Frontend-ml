@@ -9,9 +9,10 @@ import { ProductosService } from '../../services/productos.service';
 })
 export class ProductosComponent {
   productos:any = {};
+  isLoading = true;
 
   constructor(private activatedRoute:ActivatedRoute,
-        private productosService:ProductosService
+    private productosService:ProductosService
   ){
 
     this.activatedRoute.params.subscribe(params => {
@@ -20,6 +21,7 @@ export class ProductosComponent {
 
           // this.productos = response.data.filter((producto: any) => producto.Link_competencia_publicacion != "");
           this.productos = response;
+          this.isLoading = false
           console.log('Productos recibidos:::::::::::', this.productos);
         },
         (error) => {
@@ -27,14 +29,15 @@ export class ProductosComponent {
         }
       );
     });
-    }
+  }
+
   formatCurrency(amount: number): string {
-      const formattedAmount = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      }).format(amount);
-      return formattedAmount.replace(/\s/g, '');
-    }
+    const formattedAmount = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+    return formattedAmount.replace(/\s/g, '');
+  }
 }
