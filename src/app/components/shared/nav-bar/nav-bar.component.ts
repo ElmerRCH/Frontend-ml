@@ -25,5 +25,8 @@ export class NavBarComponent {
       }
     );
   }
+  selectorSeller(){
+    alert('hola')
+  }
 
 }
