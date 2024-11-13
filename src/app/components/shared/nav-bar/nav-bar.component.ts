@@ -8,7 +8,8 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class NavBarComponent {
   isLoading = false;
-  modalActive = false
+  modalActive = false;
+
   constructor(private productosService:ProductosService){}
 
   actualizarInventario() {
@@ -25,12 +26,15 @@ export class NavBarComponent {
       }
     );
   }
-  selectorSeller(){
-    alert('hola')
-  }
 
   closeModal(){
+    console.log('llego.....')
+    this.modalActive = true
 
+  }
+  closeModal2(){
+    console.log('llego.....')
     this.modalActive = false
+
   }
 }

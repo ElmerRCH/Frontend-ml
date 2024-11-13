@@ -1,4 +1,4 @@
-import { Component,Output,EventEmitter } from '@angular/core';
+import { Component,Output,EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-seller-selector',
@@ -7,15 +7,17 @@ import { Component,Output,EventEmitter } from '@angular/core';
 })
 export class SellerSelectorComponent {
 
-  @Output() modal: EventEmitter<boolean>;
-
   constructor(){
-    this.modal = new EventEmitter()
 
+    this.modal = new EventEmitter()
   }
+
+
+  @Output() modal: EventEmitter<boolean>;
 
   closeModal(){
     this.modal.emit()
-
+    
   }
+
 }
