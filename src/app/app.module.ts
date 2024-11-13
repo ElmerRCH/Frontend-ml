@@ -8,6 +8,7 @@ import { MarcasComponent } from './components/marcas/marcas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './components/productos/productos.component';
 import { LoadingIndicatorComponent } from './components/shared/loading-indicator/loading-indicator.component';
+import { SellerSelectorComponent } from './components/seller-selector/seller-selector.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoadingIndicatorComponent } from './components/shared/loading-indicator
     NavBarComponent,
     MarcasComponent,
     ProductosComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    SellerSelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class NavBarComponent {
   isLoading = false;
+  modalActive = false;
 
   constructor(private productosService:ProductosService){}
 
@@ -26,4 +27,12 @@ export class NavBarComponent {
     );
   }
 
+  closeModal(){
+    this.modalActive = true
+
+  }
+  closeModal2(){
+    this.modalActive = false
+
+  }
 }
