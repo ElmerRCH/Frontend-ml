@@ -12,12 +12,11 @@ export class SellerSelectorComponent {
     this.modal = new EventEmitter()
   }
 
-
   @Output() modal: EventEmitter<boolean>;
 
   closeModal(){
     this.modal.emit()
-    
+
   }
 
 }

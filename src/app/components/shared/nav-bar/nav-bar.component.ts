@@ -28,12 +28,10 @@ export class NavBarComponent {
   }
 
   closeModal(){
-    console.log('llego.....')
     this.modalActive = true
 
   }
   closeModal2(){
-    console.log('llego.....')
     this.modalActive = false
 
   }
